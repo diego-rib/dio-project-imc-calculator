@@ -46,3 +46,13 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Legacy Flutter/Pub files
+.flutter-plugins
+.packages
+
+# Secrets and signing keys
+.env*
+*.jks
+*.keystore
+key.properties
