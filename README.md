@@ -22,19 +22,21 @@ O resultado é classificado conforme a tabela abaixo:
 | ≥ 40         | Obesidade Grau III (mórbida) |
 
 ## Entendendo o Desafio
- 
-Neste Desafio você irá criar uma calculadora simples para calcular o IMC (Índice de Massa Corporal) de uma pessoa utilizando a linguagem Dart e o Flutter. 
- 
+
+Neste Desafio você irá criar uma calculadora simples para calcular o IMC (Índice de Massa Corporal) utilizando a linguagem Dart e o Flutter.
+
+## Como usar o app
+
+- A tela inicial lista os registros calculados (peso, altura, IMC e classificação).
+- O botão flutuante **+** abre um bottom sheet para informar peso (kg) e altura (m); vírgula ou ponto são aceitos.
+- O ícone de lixeira de cada registro pede confirmação antes de excluir.
+- Os registros ficam apenas em memória: a lista zera ao fechar o app.
+
 ## Checklist do Desafio
 
-[x] Criar classe Pessoa (Nome / Peso / Altura)​
-
-[x] Ler dados do terminal​
-
-[x] Tratar exceções​
-
-[x] Calcular IMC ​
-
-[x] Printar na tela o resultado do cálculo​
-
-[x] Testes​
+- [x] Criar classe Registro (Peso / Altura)
+- [x] Ler dados no app
+- [x] Tratar exceções
+- [x] Calcular IMC
+- [x] Exibir em uma lista
+- [x] Testes
