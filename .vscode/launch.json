@@ -1,0 +1,10 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "imc_calculator",
+      "request": "launch",
+      "type": "dart"
+    },
+  ]
+}
