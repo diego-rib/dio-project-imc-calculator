@@ -1,9 +1,6 @@
-class Pessoa {
-  Pessoa({required this.nome, required this.peso, required this.altura}) {
-    if (nome.trim().isEmpty) {
-      throw ArgumentError('Você deve inserir um nome válido');
-    }
-
+class Registro {
+  Registro({required this.peso, required this.altura, DateTime? data})
+    : data = data ?? DateTime.now() {
     if (peso <= 0) {
       throw ArgumentError('Você deve inserir um peso válido');
     }
@@ -13,13 +10,13 @@ class Pessoa {
     }
   }
 
-  final String nome;
-
   /// Peso em quilos.
   final double peso;
 
   /// Altura em metros.
   final double altura;
+
+  final DateTime data;
 
   double get imc => calculateImc(weight: peso, height: altura);
   String get classificacao => classifyImc(imc);

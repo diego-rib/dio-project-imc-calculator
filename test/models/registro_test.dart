@@ -1,21 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:imc_calculator/pessoa.dart' as pessoa_class;
+import 'package:imc_calculator/models/registro.dart';
 
 void main() {
   group('calculateImc', () {
     test('calcula peso / altura²', () {
-      expect(
-        pessoa_class.calculateImc(weight: 81, height: 1.8),
-        closeTo(25, 0.001),
-      );
+      expect(calculateImc(weight: 81, height: 1.8), closeTo(25, 0.001));
     });
 
     test('lança erro para altura zero', () {
-      expect(
-        () => pessoa_class.calculateImc(weight: 70, height: 0),
-        throwsArgumentError,
-      );
+      expect(() => calculateImc(weight: 70, height: 0), throwsArgumentError);
     });
   });
 
@@ -40,38 +34,31 @@ void main() {
 
     cases.forEach((imc, expected) {
       test('$imc -> $expected', () {
-        expect(pessoa_class.classifyImc(imc), expected);
+        expect(classifyImc(imc), expected);
       });
     });
   });
 
-  group('Pessoa', () {
+  group('Registro', () {
     test('calcula imc e classificação', () {
-      final pessoa = pessoa_class.Pessoa(nome: 'Diego', peso: 70, altura: 1.75);
+      final registro = Registro(peso: 70, altura: 1.75);
 
-      expect(pessoa.imc, closeTo(22.86, 0.01));
-      expect(pessoa.classificacao, 'Saudável');
+      expect(registro.imc, closeTo(22.86, 0.01));
+      expect(registro.classificacao, 'Saudável');
     });
 
-    test('lança erro para nome vazio', () {
-      expect(
-        () => pessoa_class.Pessoa(nome: ' ', peso: 70, altura: 1.75),
-        throwsArgumentError,
-      );
+    test('usa a data informada', () {
+      final data = DateTime(2026, 1, 2);
+
+      expect(Registro(peso: 70, altura: 1.75, data: data).data, data);
     });
 
     test('lança erro para peso inválido', () {
-      expect(
-        () => pessoa_class.Pessoa(nome: 'Diego', peso: 0, altura: 1.75),
-        throwsArgumentError,
-      );
+      expect(() => Registro(peso: 0, altura: 1.75), throwsArgumentError);
     });
 
     test('lança erro para altura inválida', () {
-      expect(
-        () => pessoa_class.Pessoa(nome: 'Diego', peso: 70, altura: -1),
-        throwsArgumentError,
-      );
+      expect(() => Registro(peso: 70, altura: -1), throwsArgumentError);
     });
   });
 }
